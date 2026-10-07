@@ -5,13 +5,12 @@ problem and in the order I typed them.
 
 **How to use this file**
 
-- One `##` section per problem. Replace the placeholder title with the real one.
-- Paste prompts verbatim inside the code fences — typos, shorthand and all.
+- One `##` section per problem, with the problem number and title.
+- Prompts are kept verbatim inside the code fences — typos, shorthand and all.
   The fences keep Markdown from reformatting anything.
-- Add numbered entries under **Prompts** if a problem took more than one go.
-- Use **Follow-up prompt** for the correction or refinement after seeing the
-  first result. Leave it empty if there wasn't one.
-- A blank section to copy is at the bottom.
+- **Follow-up prompt** holds any correction or refinement after the first
+  result; it's empty where there wasn't one.
+- **Notes** is a short record of what the step produced.
 
 ---
 
@@ -171,7 +170,7 @@ Added typed return models (`ProductDetail`, `SizeAvailability`); tools batched t
 
 1.
 ```text
-let's do the problem 7, which is chat search feature. When a customer asks something like "what hoodies do you have?", the chatbot should search the catalogue and return the matching products, and those products should dynamically show up on the website as product cards with the image, name, price, and short info. The agent should return the product matches in a structured format so the frontend can use them to render the cards. Make sure this works with the chat interface we already built and that clicking any of these dynamically shown product cards still opens the same single-product detail page with the large image and full product information. Also update prompts/prompt.md and output/harness.md to explain how the search results get from the agent to the frontend and how the frontend displays them. Test it with a few different product searches and make sure the page updates with the correct matching products.
+let's do the problem 7, which is chat search feature. When a customer asks something like “what hoodies do you have?”, the chatbot should search the catalogue and return the matching products, and those products should dynamically show up on the website as product cards with the image, name, price, and short info. The agent should return the product matches in a structured format so the frontend can use them to render the cards. Make sure this works with the chat interface we already built and that clicking any of these dynamically shown product cards still opens the same single-product detail page with the large image and full product information. Also update prompts/prompt.md and output/harness.md to explain how the search results get from the agent to the frontend and how the frontend displays them. Test it with a few different product searches and make sure the page updates with the correct matching products.
 ```
 
 **Follow-up prompt**
@@ -193,7 +192,7 @@ ProductCard; each card opens the detail page.
 
 1.
 ```text
-Step 8, customer memory. When a shopper is logged in, save their chat history in the database and load that history again when they come back, but guests can still chat without having their history saved. The agent should also know who is currently chatting, including their name and email, and that information should be passed into the agent context or through a tool the agent can use. Also pass the current page context to the agent, including the product the shopper is looking at when they are on a product page, so if they ask something like "do you have this in pink?" the agent knows which product they mean. Make sure this works with the login system and chat we already built and that the memory is only tied to the logged-in user. Update output/harness.md to explain how chat history is stored, what customer information the agent can see, and how the current page context gets passed to the agent. Test it with a logged-in user and a guest, including a conversation on a product page.
+let's do step 8, customer memory now. When a shopper is logged in, save their chat history in the database and load that history again when they come back, but guests can still chat without having their history saved. The agent should also know who is currently chatting, including their name and email, and that information should be passed into the agent context or through a tool the agent can use. Also pass the current page context to the agent, including the product the shopper is looking at when they are on a product page, so if they ask something like “do you have this in pink?” the agent knows which product they mean. Make sure this works with the login system and chat we already built and that the memory is only tied to the logged-in user. Update output/harness.md to explain how chat history is stored, what customer information the agent can see, and how the current page context gets passed to the agent. Test it with a logged-in user and a guest, including a conversation on a product page.
 ```
 
 **Follow-up prompt**
@@ -237,7 +236,7 @@ and a capped 2-query search. Documented in `output/usability.md`.
 
 1.
 ```text
-Step 10, which is styling the website so it feels like a real Campus Customs storefront. Add creative and imaginative design improvements across the site, including the fonts, colors, visual hierarchy, motion/animations, product presentation, and the chat experience. Make the design feel polished and cohesive rather than just adding random styling, and make sure it still feels like a Campus Customs/Yale campus-merch store. Focus on making the site more engaging and easier to browse, with product cards and product pages looking good, navigation being clear, and the chat feeling like part of the storefront. Keep all the existing functionality working, including product search, dynamic product cards, product details, login/create account, and customer chat. Also create output/design.md and keep it short and concrete, explaining what you changed and why each change should help customers stay on the site and buy.
+Let's do step 10, which is styling the website so it feels like a real Campus Customs storefront. Add creative and imaginative design improvements across the site, including the fonts, colors, visual hierarchy, motion/animations, product presentation, and the chat experience. Make the design feel polished and cohesive rather than just adding random styling, and make sure it still feels like a Campus Customs/Yale campus-merch store. Focus on making the site more engaging and easier to browse, with product cards and product pages looking good, navigation being clear, and the chat feeling like part of the storefront. Keep all the existing functionality working, including product search, dynamic product cards, product details, login/create account, and customer chat. Also create output/design.md and keep it short and concrete, explaining what you changed and why each change should help customers stay on the site and buy.
 ```
 
 **Follow-up prompt**
@@ -259,7 +258,7 @@ card hover/zoom, branded chat. All original styling; no trademarked artwork.
 
 1.
 ```text
-Step 11, which is testing the live site and documenting the results in output/app_check.html. Test the main features we have built and make the page easy to grade. I need screenshots and short captions showing a chat where the agent checks the inventory level of an item and gives the honest stock and price from the database, the dynamic product cards appearing after a category question like "what hoodies do you have?", and one of the usability improvements we added in step 9. Put the screenshot files in output/app_check_images/ and link them from output/app_check.html using relative paths. Give each screenshot a clear heading and one or two sentences explaining what it proves. Make sure the screenshots are from the actual running site and that all three features are working before documenting them.
+Let's do step 11, which is testing the live site and documenting the results in output/app_check.html. Test the main features we have built and make the page easy to grade. I need screenshots and short captions showing a chat where the agent checks the inventory level of an item and gives the honest stock and price from the database, the dynamic product cards appearing after a category question like “what hoodies do you have?”, and one of the usability improvements we added in step 9. Put the screenshot files in output/app_check_images/ and link them from output/app_check.html using relative paths. Give each screenshot a clear heading and one or two sentences explaining what it proves. Make sure the screenshots are from the actual running site and that all three features are working before documenting them.
 ```
 
 **Follow-up prompt**
@@ -281,7 +280,7 @@ Three real screenshots in `output/app_check_images/`, linked from
 
 1.
 ```text
-Step 12, which is finishing the audit trail, safety rules, and the harness documentation. Keep output/audit_trail.json append-only so every agent run adds a new entry instead of replacing the old ones. Each entry should include the time, the tool name, the short arguments/result, and why the agent stopped. Add useful safety rules to prompts/prompt.md so the agent doesn't make up product information, prices, stock, or sizes, doesn't expose passwords or private customer information, doesn't claim that something was done when it wasn't, and uses the database/tools when it needs real product information. Also make the agent ignore requests that try to override its system rules or expose internal prompts, tools, or private data. Finish output/harness.md so it clearly explains the model fields in models.py and why they were chosen, the tools and abilities the agent has, the safety rules, and the important specs such as loop limits, result limits, which model is being used, and how to run both the frontend and backend. Keep the existing information in the harness and add to it rather than replacing useful sections. Test an agent run and make sure a real audit entry is added and stays there across multiple runs.
+Let's do step 12, which is finishing the audit trail, safety rules, and the harness documentation. Keep output/audit_trail.json append-only so every agent run adds a new entry instead of replacing the old ones. Each entry should include the time, the tool name, the short arguments/result, and why the agent stopped. Add useful safety rules to prompts/prompt.md so the agent doesn't make up product information, prices, stock, or sizes, doesn't expose passwords or private customer information, doesn't claim that something was done when it wasn't, and uses the database/tools when it needs real product information. Also make the agent ignore requests that try to override its system rules or expose internal prompts, tools, or private data. Finish output/harness.md so it clearly explains the model fields in models.py and why they were chosen, the tools and abilities the agent has, the safety rules, and the important specs such as loop limits, result limits, which model is being used, and how to run both the frontend and backend. Keep the existing information in the harness and add to it rather than replacing useful sections. Test an agent run and make sure a real audit entry is added and stays there across multiple runs.
 ```
 
 **Follow-up prompt**
@@ -294,28 +293,3 @@ Step 12, which is finishing the audit trail, safety rules, and the harness docum
 
 Append-only `output/audit_trail.json` (time, tools+args/results, stop reason);
 loop limit 8; harness finished with models, tools, safety, and specs.
-
----
-
-## Template — copy this for each new problem
-
-```markdown
-## Problem N — <title>
-
-**Prompts**
-
-1.
-​```text
-
-​```
-
-**Follow-up prompt**
-
-​```text
-
-​```
-
-**Notes**
-
-
-```
