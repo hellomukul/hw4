@@ -1,0 +1,137 @@
+/* Campus Customs — Yale navy and white, collegiate and clean.
+   Palette taken from the look of yalebulldogblue.com: navy dominant, white
+   surfaces, a single warm accent for calls to action. */
+
+:root {
+  --navy: #00356b;
+  --navy-deep: #001b3a;
+  --navy-soft: #0a4a8f;
+  --ink: #15202b;
+  --muted: #5d6b7a;
+  --line: #dfe5ec;
+  --surface: #ffffff;
+  --page: #f3f6fa;
+  /* A warm Yale-gold accent, used sparingly for emphasis. */
+  --accent: #c8a45c;
+  --accent-deep: #a9823a;
+  --ok: #1a7f4b;
+  --warn: #9a3b2f;
+
+  --radius: 12px;
+  --radius-sm: 8px;
+  --shadow-sm: 0 1px 2px rgba(0, 27, 58, 0.05), 0 2px 10px rgba(0, 27, 58, 0.06);
+  --shadow-md: 0 8px 28px rgba(0, 27, 58, 0.13);
+  --shadow-lg: 0 18px 50px rgba(0, 27, 58, 0.18);
+
+  --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Fraunces', 'Georgia', 'Times New Roman', serif;
+
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--ink);
+  font-family: var(--font-ui);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  color: var(--navy-deep);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.5rem;
+  font-weight: 600;
+}
+
+a {
+  color: var(--navy);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+::selection {
+  background: var(--navy);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--navy);
+  outline-offset: 2px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Subtle entrance used on sections and cards for a polished, lively feel. */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.fade-up {
+  animation: fadeUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .fade-up {
+    animation: none;
+  }
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+.container {
+  width: min(1180px, 100% - 2.5rem);
+  margin-inline: auto;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

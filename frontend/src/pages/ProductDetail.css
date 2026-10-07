@@ -1,0 +1,230 @@
+.crumbs {
+  display: flex;
+  gap: 0.45rem;
+  align-items: center;
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.crumbs .current {
+  color: var(--ink);
+}
+
+.detail {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.detail-media {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 96px;
+}
+
+.detail-media img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+}
+
+.eyebrow {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.detail-info h1 {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  margin: 0.25rem 0 0.5rem;
+}
+
+.detail-price {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--navy-deep);
+  margin: 0 0 1rem;
+}
+
+.detail-desc {
+  color: #2f3d4c;
+  margin: 0 0 1.5rem;
+  max-width: 60ch;
+}
+
+.detail-block {
+  padding-top: 1.25rem;
+  margin-top: 1.25rem;
+  border-top: 1px solid var(--line);
+}
+
+.detail-block h2 {
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-family: var(--font-ui);
+  color: var(--muted);
+  margin-bottom: 0.6rem;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.chips li {
+  padding: 0.25rem 0.65rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+  font-size: 0.84rem;
+  text-transform: capitalize;
+}
+
+.chips.subtle li {
+  background: #eef2f7;
+  border-color: transparent;
+  color: var(--muted);
+  font-size: 0.78rem;
+  text-transform: none;
+}
+
+.sizes {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.size {
+  min-width: 52px;
+  padding: 0.55rem 0.5rem;
+  border: 1px solid var(--line);
+  background: #fff;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.size:hover:not(:disabled) {
+  border-color: var(--navy);
+}
+
+.size.selected {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: #fff;
+}
+
+.size.out {
+  color: #b4bec9;
+  background: #f6f8fa;
+  cursor: not-allowed;
+  text-decoration: line-through;
+}
+
+.stock-line {
+  margin: 0.8rem 0 1rem;
+  font-size: 0.9rem;
+}
+
+.stock-line .ok {
+  color: var(--ok);
+  font-weight: 600;
+}
+
+.stock-line .low {
+  color: #8a6118;
+  font-weight: 600;
+}
+
+.stock-line .muted {
+  color: var(--muted);
+}
+
+.btn.wide {
+  width: 100%;
+  padding: 0.7rem 1rem;
+}
+
+@media (max-width: 860px) {
+  .detail {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .detail-media {
+    position: static;
+  }
+}
+
+/* ------------------------------------------------------- detail polish */
+
+.detail-media {
+  background: linear-gradient(170deg, #ffffff 0%, #eef2f7 100%);
+}
+
+.detail-info h1 {
+  font-weight: 600;
+}
+
+.detail-price {
+  font-family: var(--font-display);
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.3rem;
+}
+
+/* A thin gold rule under the price, tying it to the brand accent. */
+.detail-price::after {
+  content: '';
+  display: block;
+}
+
+.eyebrow {
+  color: var(--accent-deep);
+}
+
+.size {
+  transition: border-color 0.15s ease, background 0.15s ease, transform 0.12s ease;
+}
+
+.size:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.size.selected {
+  box-shadow: 0 4px 12px rgba(0, 53, 107, 0.3);
+}
+
+.btn.primary.wide {
+  background: linear-gradient(180deg, var(--navy-soft), var(--navy));
+  box-shadow: 0 6px 16px rgba(0, 53, 107, 0.25);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn.primary.wide:not(:disabled):hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(0, 53, 107, 0.32);
+}
+
+.chips li {
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.chips li:hover {
+  border-color: var(--accent);
+}

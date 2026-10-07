@@ -1,0 +1,308 @@
+.page {
+  padding-block: 2rem;
+}
+
+.page-head {
+  margin-bottom: 1.5rem;
+}
+
+.page-head h1 {
+  font-size: clamp(1.8rem, 3.2vw, 2.4rem);
+}
+
+.lead {
+  color: var(--muted);
+  max-width: 62ch;
+  margin: 0;
+}
+
+.filters {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  padding: 1rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+
+.filter-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  min-width: 170px;
+}
+
+.filter-field.grow {
+  flex: 1;
+  min-width: 220px;
+}
+
+.filter-field label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+}
+
+.filter-field input,
+.filter-field select {
+  padding: 0.5rem 0.65rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.filter-field input:focus,
+.filter-field select:focus {
+  outline: 2px solid var(--navy);
+  outline-offset: -1px;
+}
+
+.btn.ghost.dark {
+  color: var(--navy);
+  border-color: var(--line);
+}
+
+.btn.ghost.dark:hover {
+  background: #eef2f7;
+}
+
+.result-count {
+  margin: 1rem 0 0.75rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.notice {
+  padding: 0.8rem 1rem;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--navy);
+  border-radius: 6px;
+  color: var(--muted);
+}
+
+.notice.error {
+  border-left-color: var(--warn);
+  color: var(--warn);
+}
+
+/* ----------------------------------------------------------------- grid */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 1.25rem;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  color: inherit;
+  transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.22s ease,
+    border-color 0.22s ease;
+}
+
+.card:hover {
+  text-decoration: none;
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--accent);
+}
+
+.card-media {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  background: linear-gradient(170deg, #ffffff 0%, #eef2f7 100%);
+  display: grid;
+  place-items: center;
+  padding: 0.85rem;
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.card:hover .card-media img {
+  transform: scale(1.06);
+}
+
+/* "View" affordance that slides up on hover, so a card reads as clickable. */
+.card-media::after {
+  content: 'View product';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0.4rem;
+  text-align: center;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: #fff;
+  background: linear-gradient(180deg, transparent, rgba(0, 27, 58, 0.82));
+  transform: translateY(100%);
+  transition: transform 0.25s ease;
+}
+
+.card:hover .card-media::after {
+  transform: none;
+}
+
+.card-body {
+  padding: 0.8rem 0.9rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  flex: 1;
+}
+
+.card-body h3 {
+  font-size: 0.98rem;
+  margin: 0;
+  font-family: var(--font-ui);
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.card-type {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--muted);
+  text-transform: capitalize;
+}
+
+.card-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-top: auto;
+  padding-top: 0.5rem;
+}
+
+.price {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--navy-deep);
+  font-size: 1.15rem;
+}
+
+.stock {
+  font-size: 0.72rem;
+  padding: 0.18rem 0.5rem;
+  border-radius: 999px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.stock.ok {
+  background: #e7f4ec;
+  color: var(--ok);
+}
+
+.stock.partial {
+  background: #fdf3e3;
+  color: #8a6118;
+}
+
+.stock.out {
+  background: #fbeceb;
+  color: var(--warn);
+}
+
+.card-colors {
+  margin: 0;
+  font-size: 0.76rem;
+  color: var(--muted);
+  text-transform: capitalize;
+}
+
+/* ------------------------------------------------- loading / empty states */
+
+/* A neutral shimmering block used for skeleton placeholders. */
+.skeleton-box,
+.skeleton-line {
+  background: linear-gradient(100deg, #eef2f7 30%, #e2e8f1 50%, #eef2f7 70%);
+  background-size: 200% 100%;
+  animation: skeletonShimmer 1.3s ease-in-out infinite;
+  border-radius: 6px;
+}
+
+.card-skeleton {
+  pointer-events: none;
+}
+
+.card-skeleton .card-media {
+  border-bottom: 1px solid var(--line);
+}
+
+.skeleton-line {
+  height: 0.8rem;
+  margin: 0.4rem 0;
+  width: 70%;
+}
+
+.skeleton-line.wide {
+  width: 90%;
+}
+
+.skeleton-line.short {
+  width: 40%;
+}
+
+@keyframes skeletonShimmer {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+
+/* A centred panel for empty + error states, so the page is never just blank. */
+.state-panel {
+  text-align: center;
+  max-width: 460px;
+  margin: 2.5rem auto;
+  padding: 2rem 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+
+.state-panel h2 {
+  font-size: 1.25rem;
+  margin-bottom: 0.4rem;
+}
+
+.state-panel p {
+  color: var(--muted);
+  margin: 0 0 1.25rem;
+}
+
+.state-panel.error {
+  border-top: 3px solid var(--warn);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton-box,
+  .skeleton-line {
+    animation: none;
+  }
+}

@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Campus Customs — App Check</title>
+    <style>
+      :root {
+        --navy: #00356b;
+        --navy-deep: #001b3a;
+        --accent: #c8a45c;
+        --ink: #15202b;
+        --muted: #5d6b7a;
+        --line: #dfe5ec;
+        --page: #f3f6fa;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        color: var(--ink);
+        background: var(--page);
+        line-height: 1.55;
+      }
+      header {
+        background: linear-gradient(180deg, var(--navy) 0%, #013062 100%);
+        color: #fff;
+        border-bottom: 2px solid var(--accent);
+        padding: 2rem 1.25rem;
+      }
+      header .wrap { max-width: 900px; margin: 0 auto; }
+      header h1 { margin: 0 0 0.35rem; font-family: Georgia, serif; font-size: 1.8rem; }
+      header p { margin: 0; color: #d4e2f1; }
+      main { max-width: 900px; margin: 0 auto; padding: 1.5rem 1.25rem 3rem; }
+      .intro {
+        background: #fff; border: 1px solid var(--line); border-left: 3px solid var(--accent);
+        border-radius: 10px; padding: 1rem 1.25rem; margin-bottom: 1.75rem; color: var(--muted);
+      }
+      figure {
+        margin: 0 0 2rem; background: #fff; border: 1px solid var(--line);
+        border-radius: 12px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,27,58,0.06);
+      }
+      figure .head { padding: 1rem 1.25rem 0.25rem; }
+      figure h2 {
+        margin: 0 0 0.25rem; font-family: Georgia, serif; font-size: 1.2rem; color: var(--navy-deep);
+      }
+      .tag {
+        display: inline-block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.04em;
+        text-transform: uppercase; color: var(--accent); margin-bottom: 0.35rem;
+      }
+      figcaption { padding: 0 1.25rem 1rem; color: var(--ink); }
+      figcaption .proof { color: var(--muted); font-size: 0.92rem; margin-top: 0.3rem; }
+      figure img {
+        display: block; width: 100%; height: auto; border-top: 1px solid var(--line);
+        background: #000;
+      }
+      footer { max-width: 900px; margin: 0 auto; padding: 0 1.25rem 3rem; color: var(--muted); font-size: 0.85rem; }
+      code { background: #eef2f7; padding: 0.1rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="wrap">
+        <h1>Campus Customs — Live App Check</h1>
+        <p>Screenshots taken from the running site (frontend on <code>localhost:5174</code>, FastAPI backend on <code>localhost:8000</code>, reading <code>data/campus_customs.db</code>).</p>
+      </div>
+    </header>
+
+    <main>
+      <p class="intro">
+        Three core features, each verified working on the live site before the screenshot was taken.
+        Every number shown by the assistant was cross-checked against the database.
+      </p>
+
+      <figure>
+        <div class="head">
+          <span class="tag">Feature 1 — Honest inventory &amp; price</span>
+          <h2>The assistant checks real stock and price from the database</h2>
+        </div>
+        <figcaption>
+          Asked “How many Basic Hoodie Big Yale are left in medium, and what does it cost?”, the
+          assistant answers <strong>5 in medium at $68</strong>.
+          <div class="proof">
+            This proves the chatbot reads live data: the <code>inventory</code> table has exactly
+            5 units of that hoodie in medium and the <code>catalogue</code> price is $68 — the
+            assistant reports those, it does not invent them.
+          </div>
+        </figcaption>
+        <img src="app_check_images/01-inventory-stock-price.jpg" alt="Chat assistant reporting 5 Basic Hoodie Big Yale in medium at $68" />
+      </figure>
+
+      <figure>
+        <div class="head">
+          <span class="tag">Feature 2 — Dynamic product cards</span>
+          <h2>A category question renders matching products on the page</h2>
+        </div>
+        <figcaption>
+          Asking “What hoodies do you have?” fills a <strong>“Shop assistant matches”</strong>
+          section with real product cards (image, name, type, price, stock), and the same
+          products appear in the chat panel.
+          <div class="proof">
+            This proves the agent returns structured product matches that the frontend turns into
+            clickable cards — each card opens that product’s full detail page.
+          </div>
+        </figcaption>
+        <img src="app_check_images/02-dynamic-product-cards.jpg" alt="Five hoodie product cards shown on the page after a category question" />
+      </figure>
+
+      <figure>
+        <div class="head">
+          <span class="tag">Feature 3 — Usability (step 9)</span>
+          <h2>A real empty state instead of a blank page</h2>
+        </div>
+        <figcaption>
+          A search with no matches shows a clear <strong>“No products matched”</strong> panel with
+          a <strong>“Show all products”</strong> button, rather than leaving the grid blank.
+          <div class="proof">
+            This proves the loading / error / empty states added in step 9: the shopper always
+            gets a readable state and a way forward, which keeps them on the site.
+          </div>
+        </figcaption>
+        <img src="app_check_images/03-usability-empty-state.jpg" alt="Products page showing a No products matched empty state with a Show all products button" />
+      </figure>
+    </main>
+
+    <footer>
+      Student project for MGT 409 — Campus Customs. Screenshots are from the actual running
+      application; all three features were confirmed working before capture.
+    </footer>
+  </body>
+</html>

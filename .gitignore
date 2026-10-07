@@ -1,0 +1,29 @@
+# --- Secrets: never commit the real key ---
+.env
+.env.*
+!.env.example
+
+# --- Local data pack (add manually — see README) ---
+# The SQLite database and product images are distributed separately.
+data/
+*.zip
+
+# --- Python ---
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# --- Node / Vite ---
+node_modules/
+dist/
+dist-ssr/
+*.local
+.vite/
+
+# --- OS / editor ---
+.DS_Store
+.idea/
+.vscode/
+*.swp

@@ -1,0 +1,34 @@
+.prose {
+  max-width: 76ch;
+}
+
+.prose section {
+  margin-bottom: 2rem;
+}
+
+.prose h2 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.prose p {
+  color: #2f3d4c;
+}
+
+.prose ul {
+  padding-left: 1.2rem;
+  color: #2f3d4c;
+}
+
+.prose li {
+  margin-bottom: 0.45rem;
+}
+
+.disclaimer {
+  margin-top: 2.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem;
+  color: var(--muted);
+  font-style: italic;
+}
